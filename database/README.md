@@ -1,38 +1,26 @@
 University Database Management System Project Overview
 
 This project implements a relational university database management system using MySQL. The system manages core university operations including students, lecturers, academic programmes, departments, courses, enrolments, grades, research projects, and staff records.
-The database follows a normalised relational structure and includes realistic sample data for testing and query execution. Additional features such as programme credit requirements, emergency contact management, and course scheduling have also been implemented.
+The database follows a normalised relational structure and includes realistic sample data for testing and query execution. 
 
-Features-
+Features:
 
 •	Relational database design using MySQL
-
 •	Entity Relationship Diagram (ERD)
-
 •	Primary and foreign key relationships
-
 •	Normalised database schema
-
 •	Realistic university sample dataset 
-
 •	Student enrolment and grade management
-
 •	Research project and publication management 
-
 •	Course scheduling and programme requirement tracking
-
 •	Data validation using constraints 
 
-Technologies Used-
+Technologies Used:
 
 •	MySQL 
-
 •	MySQL Workbench 
-
 •	SQL 
-
 •	draw.io 
-
 •	GitHub 
 
 Database Entities-
