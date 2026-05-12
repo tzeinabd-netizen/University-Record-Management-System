@@ -24,6 +24,20 @@ VALUES
 ('Mechanical Engineering', 'BEng Mechanical Engineering', 4, 4),
 ('Healthcare Informatics', 'MSc Healthcare Informatics', 2, 5);
 
+-- Insert programme credit requirements.
+INSERT INTO program_requirements (
+    program_id,
+    required_credits,
+    minimum_pass_mark
+)
+VALUES
+(1, 360, 40.00),
+(2, 180, 40.00),
+(3, 360, 40.00),
+(4, 180, 40.00),
+(5, 480, 40.00),
+(6, 180, 40.00);
+
 -- Insert sample lecturer records linked to academic departments.
 INSERT INTO lecturers (
     first_name,
@@ -82,17 +96,63 @@ INSERT INTO non_academic_staff (
     department_id,
     employment_type,
     contract_details,
-    salary,
-    emergency_contact_name,
-    emergency_contact_phone
+    salary
 )
 VALUES
-('Helen', 'Carter', 'Department Administrator', 1, 'Full-Time', 'Permanent Contract', 32500.00, 'Mark Carter', '07888 112233'),
-('Imran', 'Yusuf', 'IT Support Technician', 1, 'Full-Time', 'Permanent Contract', 34800.00, 'Amina Yusuf', '07991 223344'),
-('Rebecca', 'Jones', 'Finance Assistant', 3, 'Part-Time', '2-Year Fixed-Term Contract', 24500.00, 'Thomas Jones', '07456 778899'),
-('Ahmed', 'Farouk', 'Laboratory Technician', 4, 'Full-Time', 'Permanent Contract', 30200.00, 'Layla Farouk', '07567 889900'),
-('Nomsa', 'Dube', 'Student Services Coordinator', 5, 'Full-Time', 'Permanent Contract', 34100.00, 'Sipho Dube', '07812 667788'),
-('Claire', 'Bennett', 'Research Support Officer', 2, 'Part-Time', '1-Year Fixed-Term Contract', 27800.00, 'James Bennett', '07734 556612');
+('Helen', 'Carter', 'Department Administrator', 1, 'Full-Time', 'Permanent Contract', 32500.00),
+
+('Imran', 'Yusuf', 'IT Support Technician', 1, 'Full-Time', 'Permanent Contract', 34800.00),
+
+('Rebecca', 'Jones', 'Finance Assistant', 3, 'Part-Time', '2-Year Fixed-Term Contract', 24500.00),
+
+('Ahmed', 'Farouk', 'Laboratory Technician', 4, 'Full-Time', 'Permanent Contract', 30200.00),
+
+('Nomsa', 'Dube', 'Student Services Coordinator', 5, 'Full-Time', 'Permanent Contract', 34100.00),
+
+('Claire', 'Bennett', 'Research Support Officer', 2, 'Part-Time', '1-Year Fixed-Term Contract', 27800.00);
+
+-- Insert emergency contact records.
+INSERT INTO emergency_contacts (
+    first_name,
+    last_name,
+    phone,
+    relationship_to_person,
+    student_id,
+    lecturer_id,
+    staff_id
+)
+VALUES
+
+-- Student emergency contacts
+('Mark', 'Rahman', '07888 112233', 'Father', 1, NULL, NULL),
+('Sophia', 'Evans', '07991 223344', 'Mother', 2, NULL, NULL),
+('Raj', 'Sharma', '07567 445566', 'Brother', 3, NULL, NULL),
+('Miriam', 'Okoro', '07455 667788', 'Mother', 4, NULL, NULL),
+('Khalid', 'Hassan', '07789 334455', 'Father', 5, NULL, NULL),
+('Laura', 'Miller', '07333 112244', 'Mother', 6, NULL, NULL),
+('Peter', 'Mensah', '07877 889900', 'Father', 7, NULL, NULL),
+('Angela', 'Wilson', '07544 778899', 'Sister', 8, NULL, NULL),
+('Fatima', 'Ali', '07922 334466', 'Mother', 9, NULL, NULL),
+('Robert', 'Clarke', '07499 112255', 'Father', 10, NULL, NULL),
+('Sanjay', 'Mehta', '07511 667755', 'Father', 12, NULL, NULL),
+('Ahmed', 'Saleh', '07755 223344', 'Brother', 13, NULL, NULL),
+
+-- Lecturer emergency contacts
+('Amina', 'Walker', '07821 667701', 'Spouse', NULL, 1, NULL),
+('Daniel', 'Patel', '07440 556612', 'Brother', NULL, 2, NULL),
+('Leila', 'Khalid', '07560 778845', 'Spouse', NULL, 3, NULL),
+('Michael', 'Ahmed', '07830 445577', 'Husband', NULL, 4, NULL),
+('Esther', 'Mensah', '07470 889955', 'Sister', NULL, 5, NULL),
+('Grace', 'Taylor', '07380 112288', 'Mother', NULL, 6, NULL),
+('Ying', 'Wei', '07891 223355', 'Spouse', NULL, 7, NULL),
+
+-- Non-academic staff emergency contacts
+('Grace', 'Carter', '07777 123456', 'Partner', NULL, NULL, 1),
+('Ibrahim', 'Yusuf', '07666 998877', 'Brother', NULL, NULL, 2),
+('Thomas', 'Jones', '07456 771122', 'Husband', NULL, NULL, 3),
+('Layla', 'Farouk', '07567 881133', 'Spouse', NULL, NULL, 4),
+('Sipho', 'Dube', '07812 664422', 'Brother', NULL, NULL, 5),
+('James', 'Bennett', '07734 551199', 'Husband', NULL, NULL, 6);
 
 -- Insert sample course records linked to departments.
 INSERT INTO courses (
@@ -102,29 +162,59 @@ INSERT INTO courses (
     department_id,
     level,
     credits,
-    schedule,
     prerequisites
 )
 VALUES
-('CS101', 'Introduction to Programming', 'Fundamentals of Python programming and problem solving.', 1, 4, 20, 'Monday 10:00-12:00', NULL),
+('CS101', 'Introduction to Programming', 'Fundamentals of Python programming and problem solving.', 1, 4, 20, NULL),
 
-('CS205', 'Database Systems', 'Relational database design, SQL, and normalisation concepts.', 1, 5, 20, 'Wednesday 14:00-16:00', 'CS101'),
+('CS205', 'Database Systems', 'Relational database design, SQL, and normalisation concepts.', 1, 5, 20, 'CS101'),
 
-('CS310', 'Machine Learning', 'Supervised and unsupervised machine learning techniques.', 1, 6, 20, 'Friday 09:00-11:00', 'CS205'),
+('CS310', 'Machine Learning', 'Supervised and unsupervised machine learning techniques.', 1, 6, 20, 'CS205'),
 
-('MA201', 'Statistical Modelling', 'Probability distributions and statistical modelling methods.', 2, 5, 15, 'Tuesday 11:00-13:00', NULL),
+('MA201', 'Statistical Modelling', 'Probability distributions and statistical modelling methods.', 2, 5, 15, NULL),
 
-('BA220', 'Business Intelligence', 'Data-driven decision making and business reporting tools.', 3, 5, 15, 'Thursday 13:00-15:00', NULL),
+('BA220', 'Business Intelligence', 'Data-driven decision making and business reporting tools.', 3, 5, 15, NULL),
 
-('ME301', 'Thermodynamics', 'Principles of heat transfer and thermodynamic systems.', 4, 6, 20, 'Monday 14:00-16:00', NULL),
+('ME301', 'Thermodynamics', 'Principles of heat transfer and thermodynamic systems.', 4, 6, 20, NULL),
 
-('ME315', 'Renewable Energy Systems', 'Engineering approaches to renewable energy generation.', 4, 6, 20, 'Friday 12:00-14:00', 'ME301'),
+('ME315', 'Renewable Energy Systems', 'Engineering approaches to renewable energy generation.', 4, 6, 20, 'ME301'),
 
-('HS210', 'Healthcare Data Analytics', 'Analysis of healthcare datasets and digital health systems.', 5, 5, 15, 'Wednesday 09:00-11:00', NULL),
+('HS210', 'Healthcare Data Analytics', 'Analysis of healthcare datasets and digital health systems.', 5, 5, 15, NULL),
 
-('CS330', 'Cyber Security Fundamentals', 'Network security, encryption, and cyber threat management.', 1, 6, 20, 'Thursday 10:00-12:00', 'CS205'),
+('CS330', 'Cyber Security Fundamentals', 'Network security, encryption, and cyber threat management.', 1, 6, 20, 'CS205'),
 
-('MA320', 'Numerical Methods', 'Computational methods for solving mathematical problems.', 2, 6, 15, 'Tuesday 14:00-16:00', 'MA201');
+('MA320', 'Numerical Methods', 'Computational methods for solving mathematical problems.', 2, 6, 15, 'MA201');
+
+-- Insert course schedule records.
+INSERT INTO course_schedules (
+    course_id,
+    day_of_week,
+    start_time,
+    end_time,
+    room,
+    class_capacity
+)
+VALUES
+(1, 'Monday', '10:00:00', '12:00:00', 'CS-LAB1', 40),
+(1, 'Thursday', '14:00:00', '16:00:00', 'CS-LAB2', 25),
+
+(2, 'Wednesday', '14:00:00', '16:00:00', 'DB-204', 35),
+
+(3, 'Friday', '09:00:00', '11:00:00', 'AI-LAB2', 30),
+
+(4, 'Tuesday', '11:00:00', '13:00:00', 'MA-301', 45),
+
+(5, 'Thursday', '13:00:00', '15:00:00', 'BUS-LT1', 50),
+
+(6, 'Monday', '14:00:00', '16:00:00', 'ENG-LAB2', 25),
+
+(7, 'Friday', '12:00:00', '14:00:00', 'ENG-315', 25),
+
+(8, 'Wednesday', '09:00:00', '11:00:00', 'HS-LAB1', 35),
+
+(9, 'Thursday', '10:00:00', '12:00:00', 'CYB-LAB1', 30),
+
+(10, 'Tuesday', '14:00:00', '16:00:00', 'COMP-203', 40);
 
 -- Insert sample research project records.
 INSERT INTO research_projects (
