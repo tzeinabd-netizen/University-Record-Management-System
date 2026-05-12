@@ -1,66 +1,56 @@
-University Database Management System Project Overview
+# University Database Management System
+
+## Project Overview
 
 This project implements a relational university database management system using MySQL. The system manages core university operations including students, lecturers, academic programmes, departments, courses, enrolments, grades, research projects, and staff records.
-The database follows a normalised relational structure and includes realistic sample data for testing and query execution. 
 
-Features:
+The database follows a normalised relational structure and includes realistic sample data for testing and query execution.
 
-•	Relational database design using MySQL
+## Features
 
-•	Entity Relationship Diagram (ERD)
+- Relational database design using MySQL
+- Entity Relationship Diagram (ERD)
+- Primary and foreign key relationships
+- Normalised database schema
+- Realistic university sample dataset
+- Student enrolment and grade management
+- Research project and publication management
+- Course scheduling and programme requirement tracking
+- Data validation using constraints
 
-•	Primary and foreign key relationships
+## Technologies Used
 
-•	Normalised database schema
+- MySQL
+- MySQL Workbench
+- SQL
+- draw.io
+- GitHub
 
-•	Realistic university sample dataset 
+## Database Entities
 
-•	Student enrolment and grade management
+- Departments
+- Programs
+- Program Requirements
+- Lecturers
+- Students
+- Non-Academic Staff
+- Emergency Contacts
+- Courses
+- Course Schedules
+- Enrolments
+- Grades
+- Research Projects
+- Research Project Members
+- Lecturer Qualifications
+- Lecturer Publications
+- Disciplinary Records
+- Course Lecturers
 
-•	Research project and publication management 
+## How to Run the Project
 
-•	Course scheduling and programme requirement tracking
+1. Open MySQL Workbench.
+2. Run 'create_database.sql'.
+3. Run 'create_tables.sql'.
+4. Run 'insert_dummy_data.sql'.
 
-•	Data validation using constraints 
-
-Technologies Used:
-
-•	MySQL 
-
-•	MySQL Workbench 
-
-•	SQL 
-
-•	draw.io 
-
-•	GitHub 
-
-Database Entities-
-
-•	Departments 
-•	Programs 
-•	Program Requirements 
-•	Lecturers 
-•	Students 
-•	Non-Academic Staff 
-•	Emergency Contacts 
-•	Courses 
-•	Course Schedules 
-•	Enrolments 
-•	Grades 
-•	Research Projects 
-•	Research Project Members 
-•	Lecturer Qualifications 
-•	Lecturer Publications 
-•	Disciplinary Records 
-•	Course Lecturers 
-
-How to Run the Project?
-
-1.	Open MySQL Workbench. 
-2.	Run create_database.sql. 
-3.	Run create_tables.sql. 
-4.	Run insert_dummy_data.sql. 
- 
-The scripts should be executed in the above order to correctly create the database, tables, relationships, constraints, sample data, and SQL queries.
-
+The scripts should be executed in the above order to correctly create the database, tables, relationships, constraints, and sample data.
