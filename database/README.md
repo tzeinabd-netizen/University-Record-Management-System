@@ -5,14 +5,14 @@ The database follows a normalised relational structure and includes realistic sa
 
 Features-
 
-•	Relational database design using MySQL 
-•	Entity Relationship Diagram (ERD) 
-•	Primary and foreign key relationships 
-•	Normalised database schema 
+•	Relational database design using MySQL
+•	Entity Relationship Diagram (ERD)
+•	Primary and foreign key relationships
+•	Normalised database schema
 •	Realistic university sample dataset 
-•	Student enrolment and grade management 
+•	Student enrolment and grade management
 •	Research project and publication management 
-•	Course scheduling and programme requirement tracking 
+•	Course scheduling and programme requirement tracking
 •	Data validation using constraints 
 
 Technologies Used-
