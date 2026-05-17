@@ -39,7 +39,7 @@ SELECT
 FROM students s
 JOIN grades g
     ON s.student_id = g.student_id
-WHERE s.year_of_study >= 3
+WHERE s.year_of_study = 3
 GROUP BY s.student_id, s.first_name, s.last_name, s.year_of_study
 HAVING AVG(g.grade_percentage) > 70;
 
@@ -180,30 +180,6 @@ WITH lecturer_stats AS (
 
 FROM lecturer_stats;
 
--- Query 11: Identify members of the university with the same name
-
-SELECT
-    first_name,
-    last_name,
-    COUNT(*) AS duplicates
-FROM (
-    SELECT first_name, last_name
-	FROM students
-
-    UNION ALL
-
-    SELECT first_name, last_name
-    FROM lecturers
-
-    UNION ALL
-
-    SELECT first_name, last_name
-    FROM non_academic_staff
-
-) AS all_uni_members
-
-GROUP BY first_name, last_name
-HAVING COUNT(*) > 1;
 
 
 
