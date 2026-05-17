@@ -23,9 +23,6 @@ SQL_TEST_QUERIES_FOLDER = "tests/sql_test_queries/"
 #test function for execution time
 def test_concurrent_queries_execution_time (db_connect):
 
-#set threshold for maximum execution time
-  #  max_execution_time:float = 0.5
-
 #create loop to pass through each sql file only
     for file in os.listdir(SQL_TEST_QUERIES_FOLDER):
         if file.endswith(".sql"):
@@ -74,9 +71,6 @@ def test_concurrent_queries_execution_time (db_connect):
             print(f"{file}:\nExecution time: {execution_time:.4f} seconds")
             print(f"\nUsers: {number_users}")
 
-
-            #check execution time of each query is under the maximum threshold
-         #   assert execution_time < max_execution_time
 
 
 
