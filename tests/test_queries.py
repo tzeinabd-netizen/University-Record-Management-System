@@ -242,24 +242,6 @@ def test_find_stats_on_lecturer_workload (db_connect):
 
     assert workload_rank == sorted(workload_rank, reverse=False)
 
-#Test query 11: Identify members of the university with the same name
-
-#def test_find_duplicate_names (db_connect):
-
- #    query = load_sql_test_queries("tests/sql_test_queries/find_duplicate_names.sql")
-
- #    result = db_connect.execute(
- #       text(query)
-  #  )
-  #   rows = result.mappings().all()
-
- #    print(f"Rows: {len(rows)}")
-
-     # check rows exist
-
-  #   assert len(rows)>0
-
-
 
 
 
