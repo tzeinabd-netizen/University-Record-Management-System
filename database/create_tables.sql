@@ -26,6 +26,9 @@ CREATE TABLE programs (
 
     FOREIGN KEY (department_id)
         REFERENCES departments(department_id)
+        ON DELETE CASCADE,
+        
+        CHECK (duration_years > 0 AND duration_years <= 4)
 );
 
 -- Program_requirements table to store credit requirements for each programme.
@@ -64,7 +67,8 @@ CREATE TABLE lecturers (
         ON UPDATE CURRENT_TIMESTAMP,
 
     FOREIGN KEY (department_id)
-        REFERENCES departments(department_id),
+        REFERENCES departments(department_id)
+        ON DELETE CASCADE,
 
     CHECK (course_load >= 0)
 );
@@ -97,7 +101,8 @@ CREATE TABLE students (
         REFERENCES programs(program_id),
 
     FOREIGN KEY (advisor_id)
-        REFERENCES lecturers(lecturer_id),
+        REFERENCES lecturers(lecturer_id)
+        ON DELETE CASCADE,
 
     CHECK (year_of_study > 0)
 );
@@ -118,7 +123,8 @@ CREATE TABLE non_academic_staff (
         ON UPDATE CURRENT_TIMESTAMP,
 
     FOREIGN KEY (department_id)
-        REFERENCES departments(department_id),
+        REFERENCES departments(department_id)
+        ON DELETE CASCADE,
 
     CHECK (salary >= 0)
 );
@@ -176,7 +182,8 @@ CREATE TABLE courses (
         ON UPDATE CURRENT_TIMESTAMP,
 
     FOREIGN KEY (department_id)
-        REFERENCES departments(department_id),
+        REFERENCES departments(department_id)
+        ON DELETE CASCADE,
 
     CHECK (level > 0),
     CHECK (credits > 0)
@@ -219,7 +226,8 @@ CREATE TABLE research_projects (
         ON UPDATE CURRENT_TIMESTAMP,
 
     FOREIGN KEY (principal_investigator_id)
-        REFERENCES lecturers(lecturer_id),
+        REFERENCES lecturers(lecturer_id)
+        ON DELETE CASCADE,
 
     CHECK (end_date IS NULL OR end_date >= start_date)
 );
