@@ -98,7 +98,8 @@ CREATE TABLE students (
         ON UPDATE CURRENT_TIMESTAMP,
 
     FOREIGN KEY (program_id)
-        REFERENCES programs(program_id),
+        REFERENCES programs(program_id)
+        ON DELETE CASCADE,
 
     FOREIGN KEY (advisor_id)
         REFERENCES lecturers(lecturer_id)
