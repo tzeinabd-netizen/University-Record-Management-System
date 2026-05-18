@@ -6,7 +6,7 @@ import time
 import threading
 from sqlalchemy import text
 
-from engine.test_engine import engine
+from src.db import engine
 
 # set up fixture
 @pytest.fixture(scope="module")

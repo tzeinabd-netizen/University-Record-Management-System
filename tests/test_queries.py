@@ -2,7 +2,7 @@
 
 import pytest
 from sqlalchemy import text
-from engine.test_engine import engine
+from src.db import engine
 
 @pytest.fixture(scope="module")
 def db_connect():

@@ -5,7 +5,7 @@ import os
 import time
 
 from sqlalchemy import text
-from engine.test_engine import engine
+from src.db import engine
 
 # set up fixture for testing
 
@@ -61,6 +61,7 @@ def test_queries_execution_time (db_connect):
 
             print (f"{file}:\nExecution time: {execution_time:.4f} seconds")
             print(f"Rows: {len(rows)}")
+
 #check execution time of each query is under the maximum threshold
             assert execution_time < max_execution_time
 
