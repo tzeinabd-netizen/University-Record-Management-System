@@ -68,8 +68,14 @@ def test_concurrent_queries_execution_time (db_connect):
         # calculate execution time
             execution_time = end_time - start_time
 
-            print(f"{file}:\nExecution time: {execution_time:.4f} seconds")
+        #calculate throughput
+            throughput = number_users / execution_time
+
             print(f"\nUsers: {number_users}")
+            print(f"{file}:\nExecution time: {execution_time:.4f} seconds")
+            print (f"{file}:\nThroughput: {throughput:.4f} queries per second")
+
+
 
 
 
