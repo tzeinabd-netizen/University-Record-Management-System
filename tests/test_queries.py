@@ -65,9 +65,9 @@ def test_final_year_students_with_high_grade(db_connect):
     assert len(rows) > 0
 
     for row in rows:
-        assert row["year_of_study"] >= 3
+        assert row["year_of_study"] == 4
         assert row["average_grade"] > 70
-
+""
 # Test query 3: Identify students who have not registered for any courses.
 
 def test_find_students_no_enrolments (db_connect):
