@@ -37,14 +37,15 @@ def test_find_students_enrolled_in_course (db_connect):
     # check rows exist
     assert len(rows) > 0
 
+
+#query specific assert statements
     for row in rows:
+        assert "lecturer_first_name" in row
         assert row["lecturer_first_name"] == "James"
+        assert "lecturer_last_name" in row
         assert row ["lecturer_last_name"] == "Walker"
-
-   # first_row = rows[0]
-
-    # query specific assert statements
-    #assert first_row["lecturer_last_name"] == "Walker"
+        assert "course_name" in row
+        assert row ["course_name"] == "Database Systems"
 
 
 # Test query 2: List all final-year students with an average grade above 70%.
@@ -65,7 +66,9 @@ def test_final_year_students_with_high_grade(db_connect):
     assert len(rows) > 0
 
     for row in rows:
+        assert "year_of_study" in row
         assert row["year_of_study"] == 4
+        assert "average_grade" in row
         assert row["average_grade"] > 70
 ""
 # Test query 3: Identify students who have not registered for any courses.
@@ -111,7 +114,12 @@ def test_find_contact_info_advisor (db_connect):
 
     for row in rows:
         assert "email" in row
+        assert row ["email"] is not None
         assert "phone" in row
+        assert row ["phone"] is not None
+        assert "student_first_name" in row
+        assert row["student_first_name"] == "Aisha"
+        assert "student_last_name" in row
         assert row["student_last_name"] == "Rahman"
 
 # Test query 5: Generate a report on the publications of lecturers in the past year.
@@ -133,7 +141,16 @@ def test_generate_report_publications (db_connect):
     assert len(rows) > 0
 
     for row in rows:
+        assert "publication_year" in row
         assert row ["publication_year"] == 2025
+        assert "publication_title" in row
+        assert row ["publication_title"] is not None
+        assert "publication_year" in row
+        assert row ["publication_year"] is not None
+        assert "publication_type" in row
+        assert row ["publication_type"] is not None
+        assert "journal_or_conference" in row
+        assert row ["journal_or_conference"] is not None
 
 #Test query 6: Identify students who failed at least one course.
 
@@ -153,9 +170,10 @@ def test_find_students_failed_course (db_connect):
     assert len(rows) > 0
 
     for row in rows:
+        assert "grade_percentage" in row
         assert row["grade_percentage"] < 40
-
-
+        assert "course_name" in row
+        assert row ["course_name"] is not None
 
 #Test query 7: Identify the top-performing courses based on average student grades.
 
@@ -197,7 +215,12 @@ def test_find_students_lecturers_in_projects (db_connect):
     assert len(rows) > 0
 
     for row in rows:
+        assert "member_role" in row
         assert row["member_role"] is not None
+        assert "project_title" in row
+        assert row["project_title"] is not None
+        assert "member_name" in row
+        assert row["member_name"] is not None
 
 #Test Query 9: Collect statistics on course popularity
 
@@ -239,9 +262,7 @@ def test_find_stats_on_lecturer_workload (db_connect):
     assert len(rows) > 0
 
     workload_rank = [row["lecturer_ranking"] for row in rows]
-
     assert workload_rank == sorted(workload_rank, reverse=False)
-
 
 
 
