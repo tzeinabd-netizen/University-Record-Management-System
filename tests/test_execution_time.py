@@ -7,66 +7,62 @@ import time
 from sqlalchemy import text
 from src.db import engine
 
-# set up fixture for testing
+# ──────────────────────────────────────────────
+# PYTEST FIXTURE
+# Sets up a clean database session for each test module.
+# ──────────────────────────────────────────────
 
 @pytest.fixture(scope="module")
 def db_connect():
-
+    """create connection to database"""
     connection = engine.connect()
     yield connection
     connection.close()
 
-"""Test query execution time"""
-
-#function to help load sql queries
-#function returns queries as string
+# ──────────────────────────────────────────────
+# HELPER FUNCTION
+# Helps to load sql queries
+# ──────────────────────────────────────────────
 
 def load_sql_test_queries (path):
     with open(path,"r") as file:
         return file.read()
 
-#directory to find query files
+# directory path to find query files
 SQL_TEST_QUERIES_FOLDER = "tests/sql_test_queries/"
 
+# ──────────────────────────────────────────────
+# EXECUTION TIME TESTS
+# Measures how long it takes to execute each
+#    query once
+# Verifies that execution time of each query is
+#   under 0.02 seconds.
+# ──────────────────────────────────────────────
 
-#test function for execution time
 def test_queries_execution_time (db_connect):
+    """function to test execution time of each query"""
 
-#set threshold for maximum execution time
-    max_execution_time:float = 0.5
+    max_execution_time:float = 0.02
 
-#create loop to pass through each sql file only
     for file in os.listdir(SQL_TEST_QUERIES_FOLDER):
         if file.endswith(".sql"):
 
-#create file path
             query_path = SQL_TEST_QUERIES_FOLDER + file
 
-#load query file
             query = load_sql_test_queries(query_path)
 
-#start timer
             start_time = time.perf_counter()
 
-#execute queries and fetch results
             rows = db_connect.execute(
                 text(query)
             ).fetchall()
 
-#end timer
             end_time = time.perf_counter()
 
-#calculate execution time
             execution_time = end_time - start_time
+
+            assert execution_time < max_execution_time
+            assert len(rows) >= 0
 
             print (f"{file}:\nExecution time: {execution_time:.4f} seconds")
             print(f"Rows: {len(rows)}")
-
-#check execution time of each query is under the maximum threshold
-            assert execution_time < max_execution_time
-
-#check queries return a result
-            assert len(rows) >= 0
-
-
-
