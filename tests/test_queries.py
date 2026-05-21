@@ -6,7 +6,7 @@ from src.db import engine
 
 # ──────────────────────────────────────────────
 # PYTEST FIXTURE
-# Sets up a clean database session for each test module.
+# Sets up a clean database session.
 # ──────────────────────────────────────────────
 
 @pytest.fixture(scope="module")
