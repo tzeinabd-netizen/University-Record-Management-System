@@ -86,23 +86,23 @@ bash
 Tables are created automatically on startup via Base.metadata.create_all() at the bottom of models.py.
 
 ## Data Models (models.py)
-- Department — faculty, research area, links to programs, lecturers, courses, and staff
-- Program — degree info, duration, linked to a department and its graduation requirements
-- Program_Requirement — required credits and minimum pass mark per program
-- Student — personal info, program, advisor, year of study, and graduation status
-- Lecturer — personal info, department, expertise, course load, and research interests
-- Non_Academic_Staff — job title, employment type, salary, and department
-- Course — code, level, credits, prerequisites, and department
-- Course_Schedule — day, time, room, and capacity per course
-- Enrolment — student–course link per semester and academic year
-- Course_Lecturer — many-to-many between courses and lecturers
-- Grade — grade percentage per student per course
-- Research_Project — title, PI, funding source, dates, and outcome
-- Research_Project_Member — lecturers or students on a project with their role
-- Lecturer_Qualification — degree credentials per lecturer
-- Lecturer_Publication — publications with type, year, and journal/conference
-- Disciplinary_Record — incident log per student
-- Emergency_Contact — contact linked to a student, lecturer, or staff member
+- `Department` — faculty, research area, links to programs, lecturers, courses, and staff
+- `Program` — degree info, duration, linked to a department and its graduation requirements
+- `Program_Requirement` — required credits and minimum pass mark per program
+- `Student` — personal info, program, advisor, year of study, and graduation status
+- `Lecturer` — personal info, department, expertise, course load, and research interests
+- `Non_Academic_Staff` — job title, employment type, salary, and department
+- `Course` — code, level, credits, prerequisites, and department
+- `Course_Schedule` — day, time, room, and capacity per course
+- `Enrolment` — student–course link per semester and academic year
+- `Course_Lecturer` — many-to-many between courses and lecturers
+- `Grade` — grade percentage per student per course
+- `Research_Project` — title, PI, funding source, dates, and outcome
+- `Research_Project_Member` — lecturers or students on a project with their role
+- `Lecturer_Qualification` — degree credentials per lecturer
+- `Lecturer_Publication` — publications with type, year, and journal/conference
+- `Disciplinary_Record`— incident log per student
+- `Emergency_Contact` — contact linked to a student, lecturer, or staff member
 
 ## Queries Menu (queries.py)
 - `all_course_students(db, course_id, lecturer_id)` — students enrolled in a course taught by a specific lecturer
