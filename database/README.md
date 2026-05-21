@@ -16,7 +16,8 @@ The database follows a normalised relational structure and includes realistic sa
 - Student enrolment and grade management
 - Research project and publication management
 - Course scheduling and programme requirement tracking
-- Data validation using constraints
+- Emergency contact management
+- Data validation using NOT NULL, UNIQUE, CHECK and ON DELETE constraints
 
 ## Technologies Used
 
