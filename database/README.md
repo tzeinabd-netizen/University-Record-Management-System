@@ -61,10 +61,12 @@ The scripts should be executed in the above order to correctly create the databa
 
 ## Project Structure
 
+```
 backend/
 ├── db.py          # Database connection, session setup, and Base declaration
 ├── models.py      # SQLAlchemy ORM models
 └── queries.py     # Reusable database query functions
+```
 
 ## Tech Stack
 
