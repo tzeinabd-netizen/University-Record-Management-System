@@ -124,5 +124,20 @@ Tables are created automatically on startup via Base.metadata.create_all() at th
 - `display_all_lecturer_records(db)` — all lecturer records
 
 --- 
+## Testing
+
+## Project Structure
+
+```
+tests/
+├── conftest.py         # 
+├── test_models.py      # Database schema, boundary violation, and integrity constraint tests
+└── test_queries.py     # 
+└── pytest.ini          # Testing runner confirguration and custom marker registration
+```
+
+
+
+
 
 
