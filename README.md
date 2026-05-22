@@ -47,7 +47,7 @@ The database follows a normalised relational structure and includes realistic sa
 - Disciplinary Records
 - Course Lecturers
 
-## How to Run the Project
+## How to Run the Database
 
 1. Open MySQL Workbench.
 2. Run 'create_database.sql'.
@@ -58,35 +58,49 @@ The scripts should be executed in the above order to correctly create the databa
 
 ---
 
-## Backend 
-
-## Project Structure
+## App Structure
 
 ```
+main.py
+requirements.txt
 backend/
-├── db.py          # Database connection, session setup, and Base declaration
-├── models.py      # SQLAlchemy ORM models
-└── queries.py     # Reusable database query functions
+├── db.py
+├── models.py
+└── queries.py
+frontend/
+└── ui.py
 ```
 
 ## Tech Stack
 
-Language: Python
-Database ORM: sqlAlchemy
-Database: MySQL Wokbench
+| | |
+|---|---|
+| **Language** | Python |
+| **Database ORM** | SQLAlchemy |
+| **Database** | MySQL Workbench |
+| **UI** | PyQt6 |
 
-## Getting the Backend Started
 
-1. Install dependencies
-bash 
-- pip(3) install sqlalchemy python-dotenv
-- pip(3) install sqlalchemy
+## Getting Started
 
-2. Configure environment:
-   Set your connection string in db.py: mysql+pymysql://root:@localhost/university_record_system
+1. **Create a virtual environment** *(optional)*:
+```bash
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+```
 
-3. Initialize the database (db.py)
-Tables are created automatically on startup via Base.metadata.create_all() at the bottom of models.py.
+2. **Install dependencies**:
+```bash
+pip install -r requirements.txt
+```
+
+3. **Configure environment variables**:
+Copy `.env.example` to `.env` and set your database URL
+
+4. **Run the app**:
+```bash
+python main.py
+```
 
 ## Data Models (models.py)
 - `Department` — faculty, research area, links to programs, lecturers, courses, and staff
