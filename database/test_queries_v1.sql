@@ -39,7 +39,7 @@ SELECT
 FROM students s
 JOIN grades g
     ON s.student_id = g.student_id
-WHERE s.year_of_study >= 3
+WHERE s.year_of_study = 3
 GROUP BY s.student_id, s.first_name, s.last_name, s.year_of_study
 HAVING AVG(g.grade_percentage) > 70;
 
@@ -111,7 +111,12 @@ SELECT
         CONCAT(l.first_name, ' ', l.last_name),
         CONCAT(s.first_name, ' ', s.last_name)
     ) AS member_name,
-    rpm.member_role
+    rpm.member_role,
+     CASE
+		WHEN l.lecturer_id IS NOT NULL THEN 'Lecturer'
+        WHEN s.student_id IS NOT NULL THEN 'Student'
+        ELSE 'n/a'
+	END AS member_type
 FROM research_project_members rpm
 JOIN research_projects rp
     ON rpm.project_id = rp.project_id
@@ -120,3 +125,70 @@ LEFT JOIN lecturers l
 LEFT JOIN students s
     ON rpm.student_id = s.student_id
 ORDER BY rp.project_title;
+
+-- Query 9: Collect statistics on course popularity
+
+WITH course_stats AS (
+	SELECT
+		c.course_id,
+		c.course_name,
+		COUNT(e.enrolment_id) AS number_enrolments,
+		COUNT(DISTINCT e.student_id) AS course_size
+	FROM courses c
+    LEFT JOIN enrolments e
+		ON c.course_id = e.course_id
+	GROUP BY c.course_id, c.course_id
+)
+SELECT
+	course_id,
+    course_name,
+    number_enrolments,
+    course_size,
+
+    RANK () OVER (
+		ORDER BY course_size DESC
+	) AS course_ranking
+
+FROM course_stats;
+
+--Query 10: Collect statistics on lecturer workload
+
+WITH lecturer_stats AS (
+	SELECT
+		l.lecturer_id,
+		l.first_name,
+		l.last_name,
+		COUNT(DISTINCT e.student_id) AS students_taught,
+		COUNT(DISTINCT cl.course_id) AS courses_taught
+	FROM lecturers l
+    LEFT JOIN course_lecturers cl
+		ON l.lecturer_id = cl.lecturer_id
+	LEFT JOIN enrolments e
+		ON cl.course_id = e.course_id
+	GROUP BY l.lecturer_id, l.last_name
+   )
+	SELECT
+	lecturer_id,
+    first_name,
+    last_name,
+    students_taught,
+    courses_taught,
+
+    RANK () OVER (
+		ORDER BY students_taught DESC
+	) AS lecturer_ranking
+
+FROM lecturer_stats;
+
+
+
+
+
+
+
+
+
+
+
+
+
