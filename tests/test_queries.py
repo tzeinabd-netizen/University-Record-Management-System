@@ -2,7 +2,7 @@
 
 import pytest
 from sqlalchemy import text
-from src.db import engine
+from backend.db import engine
 
 # ──────────────────────────────────────────────
 # PYTEST FIXTURE
