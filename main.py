@@ -1,7 +1,7 @@
 import sys
 from PyQt6.QtWidgets import QApplication
-from ui import MainWindow
-from db import SessionLocal
+from frontend.ui import MainWindow
+from backend.db import SessionLocal
 
 def main():
     app = QApplication(sys.argv)

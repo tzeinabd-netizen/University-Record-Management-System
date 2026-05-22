@@ -1,6 +1,6 @@
 from sqlalchemy.sql import func
 from sqlalchemy.orm import Session
-from models import *
+from .models import *
 from datetime import datetime
 
 
@@ -147,7 +147,7 @@ def lecturers_supervising_in_program(db: Session, program_id: int):
         .distinct()
         .all()
     )
-    
+
 
 def display_all_student_records(db: Session):
     return (
@@ -155,13 +155,13 @@ def display_all_student_records(db: Session):
         .all()
     )
 
-    
+
 def display_all_course_records(db: Session):
     return(
         db.query(Course)
         .all()
     )
-    
+
 
 def display_all_lecturer_records(db: Session):
     return(

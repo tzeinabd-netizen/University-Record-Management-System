@@ -24,7 +24,7 @@ from PyQt6.QtWidgets import (
 )
 from sqlalchemy.orm import Session
 
-from queries import (
+from backend.queries import (
     all_course_students,
     courses_by_department,
     department_staff_members,

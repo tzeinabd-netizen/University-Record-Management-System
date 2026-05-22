@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, Date, Text, TIMESTAMP, ForeignKey, CheckConstraint, DECIMAL, Time
 from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
-from db import Base, engine
+from .db import Base, engine
 import enum
 
 class GraduationStatus(enum.Enum):
