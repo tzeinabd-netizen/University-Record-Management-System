@@ -130,10 +130,12 @@ Tables are created automatically on startup via Base.metadata.create_all() at th
 
 ```
 tests/
-├── conftest.py         # 
-├── test_models.py      # Database schema, boundary violation, and integrity constraint tests
-└── test_queries.py     # 
-└── pytest.ini          # Testing runner confirguration and custom marker registration
+├── sql_test_querires         #
+├── test_concurrent_users.py  #
+├── test_execution_time.py    #
+├── test_models.py            # Database schema, boundary violation, and integrity constraint tests
+└── test_queries.py           # 
+└── pytest.ini                # Testing runner confirguration and custom marker registration
 ```
 
 
