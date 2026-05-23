@@ -194,7 +194,7 @@ This file tests the execution time of running each query multiple times at the s
 simulating multiple users concurrently executing queries in the database. The number of 
 simulated users is automatically set to 10 but can be modified when the test is repeated. 
 The time that it takes to execute each query concurrently for the given number of users
-is measured. 
+is measured. Queries per second is also calculated as the throughput.
 
 
 
