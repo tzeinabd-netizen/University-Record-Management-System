@@ -159,7 +159,7 @@ This file tests the running of queries in the database. Each query is ran once. 
 query use specific assert statements to verify that a) results are returned and b) the results 
 are the correct expected outputs.
 
-**Test execution time**
+**Test_execution_time**
 This file tests the execution time of running the queries in the database. Each query is run once.
 The time that it takes to execute the query and return results is measured. The number of rows 
 retrieved by each query is also returned to verify that they have been executed correctly. 
