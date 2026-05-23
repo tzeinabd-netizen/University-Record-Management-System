@@ -154,6 +154,21 @@ tests/
 
 ## Test descriptions 
 
+**unit_tests** This file targets the distinct business logic and constraints of each domain:
+* `TestDepartment` – Asserts name uniqueness and auto-generated timestamp creation.
+* `TestProgram` & `TestProgramRequirement` – Validates cascade rules, positive credit thresholds, and pass mark boundaries (0–100%).
+* `TestLecturer` – Enforces unique email and phone constraints and rejects negative course loads.
+* `TestStudent` – Validates mandatory fields, advisor links, and rejects non-positive year of study values.
+* `TestCourse` & `TestCourseSchedule` – Enforces unique course codes, capacity floors, and valid class time ordering.
+* `TestNonAcademicStaff` – Validates mandatory fields (job title, contract details) and non-negative salary boundaries.
+* `TestEmergencyContact` – Ensures each contact links to exactly one person and blocks fully orphaned records.
+* `TestEnrolment` – Confirms valid student and course FK references and rejects missing mandatory fields.
+* `TestGrade` – Confirms valid student and course FK references and rejects missing mandatory fields.
+* `TestResearchProject` – Enforces mandatory titles, start dates, and chronologically valid project lifecycles.
+* `TestDisciplinaryRecord` – Ensures every record captures a description, incident date, and action taken.
+* `TestLecturerQualification` & `TestLecturerPublication` – Rejects award and publication years predating 1900.
+* `TestResearchProjectMember` – Enforces single-person exclusivity and blocks role mismatches between entity type and assigned role.
+
 **Test_queries**
 This file tests the running of queries in the database. Each query is ran once. A test for each 
 query use specific assert statements to verify that a) results are returned and b) the results 
