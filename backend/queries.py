@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from sqlalchemy import case, text, literal
 from sqlalchemy.sql import func
-from models import *
+from .models import *
  
  
 # Query 1: Find all students enrolled in a specific course taught by a particular lecturer.
@@ -20,8 +20,8 @@ def all_course_students(db: Session, course_name: str, lecturer_last_name: str):
         .join(Course_Lecturer, Course_Lecturer.course_id   == Course.course_id)
         .join(Lecturer,        Lecturer.lecturer_id        == Course_Lecturer.lecturer_id)
         .filter(
-            Course.course_name == course_name,
-            Lecturer.last_name == lecturer_last_name,
+            Course.course_name.ilike(f"%{course_name}%"),
+            Lecturer.last_name.ilike(f"%{lecturer_last_name}%"),
         )
         .all()
     )
@@ -79,7 +79,7 @@ def student_faculty_advisor_information(db: Session, student_last_name: str):
         )
         .select_from(Student)
         .join(Lecturer, Lecturer.lecturer_id == Student.advisor_id)
-        .filter(Student.last_name == student_last_name)
+        .filter(Student.last_name.ilike(f"%{student_last_name}%"))
         .first()
     )
  
