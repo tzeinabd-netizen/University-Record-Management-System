@@ -184,10 +184,24 @@ This file tests the running of queries in the database. Each query is ran once. 
 query use specific assert statements to verify that a) results are returned and b) the results 
 are the correct expected outputs.
 
+* `test_find_students_enrolled_in_course` - Test query 1: Find all students enrolled in a specific course taught by a particular lecturer.
+* `test_final_year_students_with_high_grade`- Test query 2: List all final-year students with an average grade above 70%.
+* `test_find_students_no_enrolments`- Test query 3: Identify students who have not registered for any courses.
+* `test_find_contact_info_advisor`- Test query 4: Retrieve the contact information for the faculty advisor of a specific student.
+* `test_generate_report_publications`- Test query 5: Generate a report on the publications of lecturers in the past year.
+* `test_find_students_failed_course` - Test query 6: Identify students who failed at least one course.
+* `test_find_top_performing_courses`- Test query 7: Identify the top-performing courses based on average student grades.
+* `test_find_students_lecturers_in_projects`- Test query 8: Identify students and lecturers involved in research projects.
+* `test_find_stats_on_course_popularity`- Test query 9: Collect statistics on course popularity.
+* `test_find_stats_on_lecturer_workload`- Test query 10: Collect statistics on lecturer workload. 
+
+
 **Test_execution_time**
 This file tests the execution time of running the queries in the database. Each query is run once.
 The time that it takes to execute the query and return results is measured. The number of rows 
 retrieved by each query is also returned to verify that they have been executed correctly. 
+
+* `test_queries_execution_time` - Tests execution time of each query. 
 
 **Test_concurrent_users**
 This file tests the execution time of running each query multiple times at the same time, 
@@ -196,8 +210,8 @@ simulated users is automatically set to 10 but can be modified when the test is 
 The time that it takes to execute each query concurrently for the given number of users
 is measured. Queries per second is also calculated as the throughput.
 
-
-
+* `test_concurrent_users` - Tests execution time of each query run
+  concurrently. 
 
 
 
