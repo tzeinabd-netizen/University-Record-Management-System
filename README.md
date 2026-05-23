@@ -152,6 +152,26 @@ tests/
 └── pytest.ini                # Testing runner confirguration and custom marker registration
 ```
 
+## Test descriptions 
+
+**Test_queries**
+This file tests the running of queries in the database. Each query is ran once. A test for each 
+query use specific assert statements to verify that a) results are returned and b) the results 
+are the correct expected outputs.
+
+**Test execution time**
+This file tests the execution time of running the queries in the database. Each query is run once.
+The time that it takes to execute the query and return results is measured. The number of rows 
+retrieved by each query is also returned to verify that they have been executed correctly. 
+
+**Test_concurrent_users**
+This file tests the execution time of running each query multiple times at the same time, 
+simulating multiple users concurrently executing queries in the database. The number of 
+simulated users is automatically set to 10 but can be modified when the test is repeated. 
+The time that it takes to execute each query concurrently for the given number of users
+is measured. 
+
+
 
 
 
