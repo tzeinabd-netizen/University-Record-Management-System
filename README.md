@@ -169,6 +169,16 @@ tests/
 * `TestLecturerQualification` & `TestLecturerPublication` – Rejects award and publication years predating 1900.
 * `TestResearchProjectMember` – Enforces single-person exclusivity and blocks role mismatches between entity type and assigned role.
 
+**Execution Instructions for Unit Testing**
+1. To Run All Discover Tests:
+   `pytest -v`
+2. To Run the Unit Test File Explicitly:
+   `pytest tests/unit_tests.py -v`
+3. Isolate Specifc Test Module:
+   `pytest -m student -v`
+4. Run a Single Isolated Test Scenario:
+   `pytest tests/unit_test.py::TestDepartment::test_duplicate_name -v`
+
 **Test_queries**
 This file tests the running of queries in the database. Each query is ran once. A test for each 
 query use specific assert statements to verify that a) results are returned and b) the results 
