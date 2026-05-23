@@ -122,19 +122,19 @@ python main.py
 - `Emergency_Contact` — contact linked to a student, lecturer, or staff member
 
 ## Queries Menu (queries.py)
-`all_course_students`(db, course_name, lecturer_last_name) — students enrolled in a specific course taught by a particular lecturer, filtered by course name and lecturer surname
-`final_year_students_above_70`(db) — students in year 4 averaging above 70%, returning student ID, name, year of study and rounded average grade
-`students_not_enrolled` (db) — students with no enrolment records at all, using an outer join and NULL check
-`student_faculty_advisor_information` (db, student_last_name) — advisor contact details for a student matched by surname, returning both student and advisor names, email and phone
-`lecturer_publications_report` (db, publication_year) — all lecturer publications for a given year, ordered by lecturer surname and publication title
-`students_failed_courses`(db) — students who failed at least one course with a grade below 40%, ordered by grade ascending
-`top_performing_courses` (db) — courses ranked by average student grade in descending order
-`research_project_members` (db) — all students and lecturers involved in research projects, with dynamically built full names and member type derived from a case statement
-`course_popularity_stats` (db) — course enrolment counts and unique student sizes ranked using a SQL CTE and RANK() window function
-`lecturer_workload_stats` (db) — lecturer teaching load ranked by students taught, using a SQL CTE and RANK() window function
-`display_all_student_records` (db) — all student records
-`display_all_course_records` (db) — all course records
-`display_all_lecturer_records` (db) — all lecturer records
+-`all_course_students`(db, course_name, lecturer_last_name) — students enrolled in a specific course taught by a particular lecturer, filtered by course name and lecturer surname
+-`final_year_students_above_70`(db) — students in year 4 averaging above 70%, returning student ID, name, year of study and rounded average grade
+-`students_not_enrolled` (db) — students with no enrolment records at all, using an outer join and NULL check
+-`student_faculty_advisor_information` (db, student_last_name) — advisor contact details for a student matched by surname, returning both student and advisor names, email and phone
+-`lecturer_publications_report` (db, publication_year) — all lecturer publications for a given year, ordered by lecturer surname and publication title
+-`students_failed_courses`(db) — students who failed at least one course with a grade below 40%, ordered by grade ascending
+-`top_performing_courses` (db) — courses ranked by average student grade in descending order
+-`research_project_members` (db) — all students and lecturers involved in research projects, with dynamically built full names and member type derived from a case statement
+-`course_popularity_stats` (db) — course enrolment counts and unique student sizes ranked using a SQL CTE and RANK() window function
+-`lecturer_workload_stats` (db) — lecturer teaching load ranked by students taught, using a SQL CTE and RANK() window function
+-`display_all_student_records` (db) — all student records
+-`display_all_course_records` (db) — all course records
+-`display_all_lecturer_records` (db) — all lecturer records
 
 --- 
 ## Testing
