@@ -41,7 +41,7 @@ def uid():
 def make_department(session, name=None, faculty="Engineering"):
     """Helper to create a department with a unique name."""
     dept_name = name or f"Dept_{uid()}"
-    dept = Department(department_name=dept_name, faculty="Engineering")
+    dept = Department(department_name=dept_name, faculty=faculty)
     session.add(dept)
     session.flush()
     return dept
