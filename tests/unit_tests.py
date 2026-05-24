@@ -3,9 +3,9 @@ import uuid
 import datetime
 import pytest
 from sqlalchemy.exc import IntegrityError, OperationalError
-from src.db import engine, SessionLocal
+from backend.db import engine, SessionLocal
 
-from src.models import (
+from backend.models import (
     Base, Student, Department, Lecturer, Program, Program_Requirement,
     Course, Course_Schedule, Course_Lecturer, Enrolment, Grade,
     Non_Academic_Staff, Emergency_Contact, Research_Project,
